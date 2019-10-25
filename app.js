@@ -54,6 +54,97 @@ function day1AM() {
   var feet = Math.floor(heightInInches / 12);
   var inches = heightInInches % 12;
   console.log(firstName + " is " + feet + " feet " + inches + " inches tall." );
+
+  print('Hello world!');
+  print(5 * 10);
+
+  var temp = f2c(32);
+  print(temp);
+  temp = f2c(212);
+  print(temp);
+
+  print(5 > 2); //true
+  print(5 < 2); //false
+  print(5 >= 5); //true
+  // not equal to
+  print(5 != 2); //true
+  // equal to
+  print(5 == 5); //true
+  // If you use 2 equal signs it compares value but not data type
+  print(5 == "5"); //true
+  // If you use 3 equal signs it compares value and data type
+  print(5 === "5"); //false
+
+  print("Casino " + canIGoToCasino(age, "IA")); //true
+  age = 19;
+  print("Casino " + canIGoToCasino(age, "IA")); //false
+  print("Casino " + canIGoToCasino(age, "MN")); //true
+
+  print(temp >= 40 && temp <= 85) // false when temp is 100
+  temp = 60;
+  print(temp >= 40 && temp <= 85) // true
+  print(likesPizza || hasTattoos);
+  likesPizza = false;
+  print(likesPizza || hasTattoos); // true
+
+  print(canIRideTheRollercoaster(feet, inches));
+  feet = 4;
+  print(canIRideTheRollercoaster(feet, inches)); // false
+  inches = 6;
+  print(canIRideTheRollercoaster(feet, inches)); // true
+
+  print("I should wear " + whatToWear(100));
+  print("I should wear " + whatToWear(70));
+  print("I should wear " + whatToWear(40));
+  print("I should wear " + whatToWear(10));
+
+  var convertedTemp = fahrenheitConverter(212, "Celsius");
+  print(convertedTemp);
+
+  convertedTemp = fahrenheitConverter(212, "Kelvin");
+  print(convertedTemp);
+
+  convertedTemp = fahrenheitConverter(212, "Banana");
+  print(convertedTemp);
+
 }
 
 day1AM();
+
+function print(input) {
+  console.log(input);
+}
+
+function f2c(temp) {
+  return ((temp - 32) * (5 / 9));
+}
+
+function canIGoToCasino(age, state) {
+  return age >= 21 && state == "IA" || age >= 18 && state == "MN";
+}
+
+function canIRideTheRollercoaster(ft, inch) {
+  return ft > 4 || ft >= 4 && inch >= 6;
+}
+
+function whatToWear(temp) {
+  if (temp >= 90) {
+    return "swim suit and sandals";
+  } else if (temp >= 65) {
+    return "t-shirt and shorts";
+  } else if (temp >= 40) {
+    return "light jacket and jeans";
+  } else {
+    return "coat and boots";
+  }
+}
+
+function fahrenheitConverter(temp, convertTo) {
+  if (convertTo == "Celsius") {
+    return f2c(temp);
+  } else if (convertTo == "Kelvin") {
+    return (temp - 32) * 5 / 9 + 273.15;
+  } else {
+    return "Invalid conversion";
+  }
+}
